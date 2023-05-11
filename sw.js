@@ -1,3 +1,3 @@
 self.addEventListener('fetch', function(event) {
-  event.respondWith(fetch(event.request.destination === 'document'?"/":event.request));
+  event.respondWith(fetch(event.request.destination === 'document'?"/":event.request.url));
 });
