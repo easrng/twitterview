@@ -150,7 +150,7 @@ h1 {
   font-weight: 300;
   background-image: linear-gradient(#1d9bf0aa, #1d9bf0aa),
     linear-gradient(CanvasText, CanvasText);
-  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.75rem;
 }
