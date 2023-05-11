@@ -40,11 +40,12 @@ function NotFound() {
   useTitle("Not Found - TwitterView");
   return html`<div class="error">Page not found.</div>`;
 }
+const proxyImage = url => "https://nitter.net/pic/orig/" + encodeURIComponent(new URL(url).pathname.slice(1))
 function APIAuthorComponent({ tweet, quote }) {
   const { author } = tweet;
   return html`
     <div class="author">
-      <img src=${author.avatar_url} alt=${author.name} />${" "}
+      <img src=${proxyImage(author.avatar_url)} alt=${author.name} />${" "}
       <a
         target="_blank"
         class="author-info"
@@ -104,7 +105,7 @@ function APIPhotoComponent({ photo }) {
   return html`
     <a href=${photo.url} target="_blank">
       <img
-        src=${photo.url}
+        src=${proxyImage(photo.url)}
         alt=${photo.altText}
         width=${photo.width}
         height=${photo.height}
