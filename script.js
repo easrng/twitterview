@@ -96,23 +96,20 @@ function APIPollComponent({ poll }) {
 
 function APIExternalMediaComponent({ media }) {
   return html`
-    <video
-      src=${media.url}
-      width=${media.width}
-      height=${media.height}
-      controls
-    ></video>
+    <a href=${media.url}>External Media (TODO: handle this better)</a>
   `;
 }
 
 function APIPhotoComponent({ photo }) {
   return html`
-    <img
-      src=${photo.url}
-      alt=${photo.altText}
-      width=${photo.width}
-      height=${photo.height}
-    />
+    <a href=${photo.url} target="_blank">
+      <img
+        src=${photo.url}
+        alt=${photo.altText}
+        width=${photo.width}
+        height=${photo.height}
+      />
+    </a>
   `;
 }
 
@@ -252,6 +249,8 @@ function App() {
     <${Route} path="/"><${Home}/></Route>
     <${Route} path="/i/web/status/:id">${tweet}</Route>
     <${Route} path="/:user/status/:id">${tweet}</Route>
+    <${Route} path="/i/web/status/:id/:rest*">${tweet}</Route>
+    <${Route} path="/:user/status/:id/:rest*">${tweet}</Route>
     <${Route}><${NotFound}/></Route>
   </${Switch}>
   `;
