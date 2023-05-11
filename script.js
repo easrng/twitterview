@@ -96,7 +96,7 @@ function APIPollComponent({ poll }) {
 
 function APIExternalMediaComponent({ media }) {
   return html`
-    <a href=${media.url}>External Media (TODO: handle this better)</a>
+    <iframe src=${media.url} title="External Media"></iframe>
   `;
 }
 
