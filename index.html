@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "htm": "https://esm.sh/htm@3.1.1",
+          "preact": "https://esm.sh/preact@10.14.1",
+          "preact/hooks": "https://esm.sh/preact@10.14.1/hooks",
+          "react-linkify": "https://esm.sh/react-linkify@0.2.2?external=react",
+          "wouter-preact": "https://esm.sh/wouter-preact@2.9.0?external=preact,preact/hooks",
+          "react": "https://esm.sh/preact@10.14.1"
+        }
+      }
+    </script>
+    <script async src="https://esm.sh/es-module-shims@1.7.2" type="module" crossorigin="anonymous"></script>
     <script src="/script.js" type="module" defer></script>
-  </head>  
+  </head>
   <body>
-    <noscript><img src="https://api.no-bitch.es/no%20javascript%3f" alt="no javascript?"></noscript>
+    <noscript>
+      <img src="https://api.no-bitch.es/no%20javascript%3f" alt="no javascript?" />
+    </noscript>
   </body>
 </html>

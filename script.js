@@ -1,12 +1,12 @@
-import { render, h } from "https://esm.sh/preact@10.13.2";
+import { render, h } from "preact";
 import {
   useState,
   useRef,
   useEffect,
-} from "https://esm.sh/preact@10.13.2/hooks";
-import htm from "https://esm.sh/htm@3.1.1";
-import Linkify from "https://esm.sh/react-linkify@0.2.2?alias=react:preact/compat";
-import { Route, Switch, Link, useLocation } from "https://esm.sh/wouter-preact@2.9.0";
+} from "preact/hooks";
+import htm from "htm";
+import Linkify from "react-linkify";
+import { Route, Switch, Link, useLocation } from "wouter-preact";
 if(location.hash.startsWith("#path=")) {
   history.replaceState(null, "", location.hash.slice(6))
 }
