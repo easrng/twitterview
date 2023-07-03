@@ -59,7 +59,7 @@ function APIAuthorComponent({ tweet, quote }) {
       ${quote
         ? html`<span class="date"
             >${"\xa0·\xa0"}<a target="_blank" href=${tweet.url}
-              >${dateFormat.format(tweet.created_at?new Date(tweet.created_at):twitterSnowflakeToDate(tweet.id))}</a
+              >${dateFormat.format(tweet._date)}</a
             ></span
           >`
         : html`<a
@@ -164,6 +164,7 @@ function ShortenedLink({ href, children }) {
 function APITweetComponent({ tweet, quote }) {
   const quoteRef = useRef();
   const navigate = useLocation()[1];
+  tweet._date = tweet._date || tweet.created_at ? new Date(tweet.created_at) : twitterSnowflakeToDate(tweet.id)
   return html`
     <${APIAuthorComponent} tweet=${tweet} quote=${quote} />
     <p><${Linkify} component=${ShortenedLink}>${tweet.text}</${Linkify}></p>
@@ -209,7 +210,7 @@ function APITweetComponent({ tweet, quote }) {
       !quote &&
       html`<div class="date">
         <a target="_blank" href=${tweet.url}>
-          ${formatDate(new Date(tweet.created_at))}
+          ${formatDate(tweet._date)}
         </a>
       </div>`
     }
