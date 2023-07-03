@@ -7,6 +7,7 @@ import {
 import htm from "htm";
 import Linkify from "react-linkify";
 import { Route, Switch, Link, useLocation } from "wouter-preact";
+import { twitterSnowflakeToDate } from 'twitter-snowflake-to-date';
 if(location.hash.startsWith("#path=")) {
   history.replaceState(null, "", location.hash.slice(6))
 }
@@ -58,7 +59,7 @@ function APIAuthorComponent({ tweet, quote }) {
       ${quote
         ? html`<span class="date"
             >${"\xa0·\xa0"}<a target="_blank" href=${tweet.url}
-              >${dateFormat.format(new Date(tweet.created_at))}</a
+              >${dateFormat.format(tweet.created_at?new Date(tweet.created_at):twitterSnowflakeToDate(tweet.id))}</a
             ></span
           >`
         : html`<a
